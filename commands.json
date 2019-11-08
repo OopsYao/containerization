@@ -1,0 +1,6 @@
+{
+    "image": "oopsy/python:daily",
+    "workdir": "/pwd",
+    "command": "python",
+    "parameters": "plot.py"
+}
