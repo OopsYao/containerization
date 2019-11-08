@@ -8,3 +8,7 @@ Try to establish an env for containerized dev!
 ```powershell
 ./docker.ps1 yourparameters
 ```
+
+## TODO
+- communication between container and host daemon
+- commands and images automapping by config
