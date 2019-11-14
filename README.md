@@ -6,7 +6,7 @@ Try to establish an env for containerized dev!
 
 ### Use it
 ```powershell
-./docker.ps1 yourparameters
+./docker.ps1 command parameters
 ```
 
 ## TODO
