@@ -17,12 +17,24 @@ if (!$scriptsConfig) {
 }
 
 $image = $scriptsConfig.image
-$workDir = $scriptsConfig.workdir
-$command = $scriptsConfig.command
 
+$workDir = $scriptsConfig.workdir
+# if workdir is not configed
+if (!$workDir) {
+    $workDir = $config.defaultWorkingDir
+}
+
+$command = $scriptsConfig.command
+# if command is not configed
 if (!$command) {
     $command = $Script
 }
 
-$Parameters = $Parameters.Replace("\", "/")
-docker run --rm -w "$workDir" -v ${PWD}:"$workDir" -e DISPLAY=host.docker.internal:0.0 "$image" "$command" "$Parameters"
+$Parameters = $Parameters.Replace("\", "/") 
+docker run `
+    --rm `
+    --workdir "$workDir" `
+    --env DISPLAY=host.docker.internal:0.0 `
+    --volume "${PWD}:$workDir" `
+    "$image" `
+    "$command" "$Parameters"
