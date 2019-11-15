@@ -5,7 +5,6 @@ param (
     $Script,
 
     [Parameter(ValueFromRemainingArguments)]
-    [string]
     $Parameters
 )
 $config = Get-Content "./commands.json" | ConvertFrom-Json
