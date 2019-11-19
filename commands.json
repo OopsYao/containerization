@@ -7,7 +7,7 @@
             "workdir": "/root/pwd"
         },
         "python": {
-            "image": "oopsy/python:daily"
+            "image": "python:3.8"
         },
         "yarn": {
             "image": "node:12.13"

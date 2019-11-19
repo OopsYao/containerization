@@ -29,7 +29,11 @@ if (!$command) {
     $command = $Script
 }
 
-$Parameters = $Parameters.Replace("\", "/") 
+if (!$Parameters -eq $null){
+    $Parameters = $Parameters.Replace("\", "/") 
+}
+
+# Env DISPLAY is intended for VcXsrv
 docker run `
     --rm `
     --workdir "$workDir" `
