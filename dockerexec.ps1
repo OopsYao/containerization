@@ -1,12 +1,14 @@
-[CmdletBinding()]
-param (
-    [Parameter(Mandatory)]
-    [string]
-    $Script,
+# [CmdletBinding()]
+# param (
+#     [Parameter(Mandatory)]
+#     [string]
+#     $Script,
 
-    [Parameter(ValueFromRemainingArguments)]
-    $Parameters
-)
+#     [Parameter(ValueFromRemainingArguments)]
+#     $Parameters
+# )
+$Script = $args[0]
+$Parameters = $args[1..$args.Length]
 $config = Get-Content "./commands.json" | ConvertFrom-Json
 
 $scriptsConfig = $config.scripts.$Script
@@ -29,7 +31,7 @@ if (!$command) {
     $command = $Script
 }
 
-if (!$Parameters -eq $null){
+if (!$Parameters -eq $null) {
     $Parameters = $Parameters.Replace("\", "/") 
 }
 
